@@ -1,0 +1,93 @@
+/* For information on how to create your own theme, please see:
+http://ionicframework.com/docs/theming/ */
+
+/* =================== FONDO AP=================== */
+ion-content {
+    --background: #6bb4ba;
+}
+
+ion-tab-bar {
+    --background: #622CBB;
+}
+
+.bar {
+    --background: #622CBB;
+}
+
+/* RutiAndo*/
+.tex-titulo {
+    color: #6bb4ba;
+    font-family: "Rowdies", sans-serif;
+    font-size: 40px;
+    letter-spacing: 0px;
+    /*ajusta el espacio entre las letras en un texto*/
+    line-height: normal;
+    position: fixed;
+    top: 0;
+}
+
+/* =================== Titulos =================== */
+ion-title{
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: 30px;
+    color: #FFFF;
+    text-align: center;
+}
+
+
+/* =================== Barra de busqueda =================== */
+.searchbar1 {
+    font-family: "Roboto Condensed", sans-serif;
+    --background: #622CBB;
+    --placeholder-color: #f2cff1;
+    padding: 30px;    /* Ajuste de espacios*/
+    margin-top: 30px; /* Ajuste de espacios*/
+}
+
+/* =================== Imagen IonToolbar=================== */
+.zorro {
+    width: 45px;
+    height: 45px;
+    margin-left: 60%;
+}
+
+/* =================== GRID =================== */
+/*arreglar el scroll o si quiero que queden de lado las tendencias*/
+/* Grid para mantener las tarjetas en dos columnas */
+/* DECIDIR SI PONER CARRUSEL PARA ESTO O DEJARLO HACIA ABAJO CON EL SCROLL */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Ajuste columnas*/
+    grid-gap: 16px;
+    padding: 16px;
+    overflow-x: auto; /* Permite el scroll */
+}
+
+/* =================== CARDS =================== */
+.main-card1, .main-card2, .main-card3{
+    background-color: #622CBB; /* Fondo de la card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);    border-radius: 12px;
+    transition: transform 0.3s ease;
+    overflow: hidden;
+}
+
+/* =================== CARDS IMAGENES =================== */
+.card-image1, .card-image2, .card-image3, .card-imagepublicacion1, .card-imagepublicacion2, .card-imagepublicacion3{
+    width: 100%; 
+    height: 300px;
+    object-fit: cover; /* Asegura que la imagen llene el contenedor */
+}
+
+
+/* Titulo de las cards*/
+ion-card-title{
+    font-size: 1.2rem;
+    font-weight:bold;
+    color: #fff;; /* Título de las tarjetas con color oscuro */
+}
+
+ion-card-subtitle{
+    margin: 4px 0;
+    color: #b5a6a6;
+    font-size: 1.0rem;
+}
