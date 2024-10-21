@@ -11,8 +11,6 @@ const Login: React.FC = () => {
         if (email === 'admin' && password === 'password') {
             localStorage.setItem('loggedIn', 'true'); // Guardar estado de sesión
             history.push('/tabs'); // Redirigir a la vista de tabs
-        } else {
-            alert('Credenciales incorrectas'); // Mensaje de error
         }
     };
 
@@ -32,8 +30,8 @@ const Login: React.FC = () => {
                         <IonItem lines='none' className='input-item'>
                             <IonInput labelPlacement="floating" clearInput onIonChange={(e) => setEmail(e.detail.value!)}>
 
-                                <div slot="label">
-                                    Email <IonText color="danger">(Required)</IonText>
+                                <div slot="label" style={{ color:'#fff' }} >
+                                    Email <IonText color="danger">(Es:admin)</IonText>
                                 </div>
 
                             </IonInput>
@@ -44,8 +42,8 @@ const Login: React.FC = () => {
                     <IonList style={{ background: 'transparent' }}>
                         <IonItem lines='none' className='input-item'>
                             <IonInput type="password" labelPlacement="floating" clearInput onIonChange={(e) => setPassword(e.detail.value!)}>
-                                <div slot="label" className='div-login'>
-                                    Contraseña <IonText color="dark">(Required)</IonText>
+                                <div slot="label" style={{ color:'#fff' }}>
+                                    Contraseña <IonText color="danger">(Es:password)</IonText>
                                 </div>
                             </IonInput>
                         </IonItem>
@@ -56,13 +54,15 @@ const Login: React.FC = () => {
                     </IonText>
 
                     {/* Botón de ingresar */}
-                    <IonButton className='boton-login' expand="block" shape="round" onClick={handleLogin}>
-                        Ingresar
-                    </IonButton>
+                    <div className="container-boton-login">
+                        <IonButton className='boton-login' shape="round" onClick={handleLogin}>
+                            Ingresar
+                        </IonButton>
+                    </div>
 
                     {/* Imagen */}
                     <div className="zorro">
-                        <img className="foto-perfil" src="../src/images/zorroFINAL.png" alt="zorro" />
+                        <img className="zorro-login" src="../src/images/zorroFINAL.png" alt="zorro" />
                     </div>
                 </div>
             </IonContent>

@@ -7,11 +7,11 @@ ion-content {
 }
 
 ion-tab-bar {
-    --background: #622CBB;
+    --background: #48267e;
 }
 
 .bar {
-    --background: #622CBB;
+    --background: #48267e;
 }
 
 /* RutiAndo*/
@@ -26,24 +26,66 @@ ion-tab-bar {
     top: 0;
 }
 
+/* ---------------------- BOTONES ---------------------- */
+.boton-login {
+    --background: #48267e;
+    color: white;
+    --box-shadow: 0 10px 5px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    width: 200px;
+    height: 50px;
+    margin-bottom: 10px;
+    margin-left: 25%;
+}
+
 /* ---------------------- LOGIN ---------------------- */
 ion-item {
-    --background: #D4C1F2;
-    margin-bottom: 15px;
-    color: #6200ea;
-    border-radius: 8px;
+    --background: #713fc3;
+    margin-bottom: 10px;
+    /*distancia entre ambos items*/
+    color: #fff;
+    border-radius: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 h2 {
     margin-top: 65px;
-    color: #6200ea;
+    color: #fff;
+    font-family: "Rethink Sans", sans-serif;}
+
+h3{
+    font-family: "Rethink Sans", sans-serif;
+
 }
 
 ion-text {
     text-align: center;
     margin-top: 20px;
+}
+
+h6 {
+    margin-left: 15px;
+    font-family: "Rethink Sans", sans-serif;
+}
+
+.zorro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Toda la altura de la ventana */
 
 }
+
+.zorro img {
+    max-width: 50%;
+    /* Ajusta según necesidad */
+    height: auto;
+    object-fit: contain;
+}
+
 
 /* ---------------------- Titulos ---------------------- */
 ion-title {
@@ -51,6 +93,8 @@ ion-title {
     font-size: 30px;
     color: #FFFF;
     text-align: center;
+    margin-top: auto;
+    
 }
 
 
@@ -66,7 +110,7 @@ ion-title {
 }
 
 /* ---------------------- Imagen IonToolbar---------------------- */
-.zorro {
+.zorro-iontoolbar {
     width: 45px;
     height: 45px;
     margin-left: 60%;
@@ -111,7 +155,7 @@ ion-card-subtitle {
     font-size: 1.0rem;
 }
 
-.publicacion{
+.publicacion {
     background-color: #48267e;
     /* Fondo de la card */
     border-radius: 12px;
