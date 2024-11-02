@@ -1,9 +1,11 @@
 import { IonIcon, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs } from "@ionic/react";
 import { Route, Redirect } from "react-router-dom";
 import { homeOutline, mapOutline, chatbubbleOutline, personOutline } from "ionicons/icons";
-import Inicio from "./Inicio";
-import Rutas from "./Rutas";
-import Comunidad from "./Comunidad";
+import Inicio     from "./Inicio";
+import Rutas      from "./Rutas";
+import Comunidad  from "./Comunidad";
+import Perfil     from "./Perfil";
+
 
 const TabsPage: React.FC = () => (
     <IonTabs>
@@ -18,6 +20,10 @@ const TabsPage: React.FC = () => (
 
             {/* Redirección por defecto */}
             <Redirect exact path="/tabs" to="/tabs/inicio" />
+
+            {/* Ruta de perfil*/}
+            <Route exact path="/tabs/perfil" component={Perfil} />
+
         </IonRouterOutlet>
 
         {/* <!-- Tab 1 - Inicio --> */}

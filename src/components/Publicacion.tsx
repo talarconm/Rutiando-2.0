@@ -44,7 +44,7 @@ const Publicacion: React.FC<PublicacionProps> = ({
                 stars.push(<IonIcon key={i} icon={starOutline} className="star-icon" />);
             }
         }
-        return stars;
+        return stars; // NO funciona aun pipipipi
     };
 
     return (

@@ -31,6 +31,7 @@ const Inicio: React.FC = () => {
         <div>
           <IonTitle>Actualidad</IonTitle>
         </div>
+        
         <Publicacion />
         <Publicacion2 />
         <Publicacion3 />
