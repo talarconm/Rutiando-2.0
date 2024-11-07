@@ -133,7 +133,9 @@ ion-title {
 /* ---------------------- CARDS ---------------------- */
 .main-card1,
 .main-card2,
-.main-card3 {
+.main-card3,
+.carduser,
+.progreso {
     background-color: #48267e;
     /* Fondo de la card */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -187,3 +189,5 @@ ion-chip {
     --background: #5f9094;
     border: 1px solid var(--ion-color-primary);
 }
+
+/* ---------------------- PERFIL ---------------------- */

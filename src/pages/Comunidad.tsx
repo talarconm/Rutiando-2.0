@@ -14,7 +14,7 @@ import {
   IonCardSubtitle,
   IonCardContent
 } from '@ionic/react';
-import './Tab3.css';
+import '../theme/variables.css';
 import CardActividades from '../components/Actividades';
 
 const Tab3: React.FC = () => {

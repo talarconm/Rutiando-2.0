@@ -1,6 +1,7 @@
 import { IonContent, IonPage, IonText, IonList, IonItem, IonInput, IonButton } from "@ionic/react";
 import { useHistory } from "react-router-dom"; //Para navegar entra rutas
 import { useState } from "react";
+import '../theme/variables.css';
 
 const Login: React.FC = () => {
     const history = useHistory(); // Hook para redirigir a otra rutas

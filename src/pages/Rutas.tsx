@@ -1,6 +1,6 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonSearchbar } from '@ionic/react';
 import Publicacion from '../components/Publicacion';
-import './Tab2.css';
+import '../theme/variables.css';
 
 const Tab2: React.FC = () => {
   return (

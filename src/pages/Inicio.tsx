@@ -10,8 +10,7 @@ import {
   IonCardSubtitle,
   IonCardContent
 } from '@ionic/react';
-import './Tab1.css';
-
+import '../theme/variables.css';
 
 const Inicio: React.FC = () => {
   return (

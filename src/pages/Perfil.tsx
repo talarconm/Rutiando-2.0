@@ -1,95 +1,110 @@
-import {
-    IonContent,
-    IonHeader,
-    IonPage,
-    IonTitle,
-    IonToolbar,
-    IonSearchbar,
-    IonButtons,
-    IonMenuButton,
-    IonButton,
-    IonCard,
-    IonCardHeader,
-    IonCardTitle,
-    IonCardSubtitle,
-    IonCardContent
-} from '@ionic/react';
-import './Tab3.css';
-import CardActividades from '../components/Actividades';
+import React from 'react';
+import { IonCard,
+IonCardContent,
+IonCardHeader,
+IonCardSubtitle,
+IonCardTitle,
+IonMenuButton,
+IonContent,
+IonHeader,
+IonPage,
+IonTitle,
+IonToolbar,
+IonButton,
+IonButtons,
+IonAvatar,
+IonGrid,
+IonRow,
+IonCol,
+IonIcon} from '@ionic/react';
+import { pencilOutline } from 'ionicons/icons';
+import '../theme/variables.css';
+import Progress from '../components/Progress';
 
-const Tab3: React.FC = () => {
+const PerfilPage: React.FC = () => {
+    return (
+        <IonPage>
+            <IonHeader>
+                <IonToolbar className='bar'>
+                    <IonTitle className='tex-titulo'>RutiAndo - Perfil</IonTitle>
+                    {/* Botón para mostrar el menú */}
+                    <IonButtons slot='end'>
+                        <IonMenuButton />
+                    </IonButtons>
+                </IonToolbar>
+            </IonHeader>
+            <IonContent fullscreen>
+                <UserProfile />
+                <Progress />
+                <AchievementsSection />
+            </IonContent>
+        </IonPage>
+    );
+};
+
+const UserProfile: React.FC = () => {
+    return (
+        <IonCard className='carduser'>
+            <IonCardContent className='carduser-content'>
+                <IonGrid> {/* Organizar el contenido de la tarjeta */}
+                    <IonRow > {/* Organizar en filas*/}
+                        <IonCol size='3'>   {/* Organizar en columnas*/}
+                            <IonAvatar> {/* Para la imagen de perfil*/}
+                                <img src='../src/images/zorroFINAL.png' alt='Profile picture' />
+                            </IonAvatar>
+                        </IonCol>
+                        <IonCol size='6'>
+                            <IonCardTitle className='user-title'>Ruti</IonCardTitle>
+                            <IonCardSubtitle className='user-subtitle'> {/* Para los detalles del perfil*/}
+                                Seguidores: 150 | Siguiendo: 180 | Logros: 10
+                            </IonCardSubtitle>
+                        </IonCol>
+                        <IonCol size='3' className='ion-text-end'>
+                            <IonButton fill='clear' color='primary'>
+                                <IonIcon icon={pencilOutline} slot='icon-only' />
+                            </IonButton>
+                        </IonCol>
+                    </IonRow>
+                </IonGrid>
+            </IonCardContent>
+        </IonCard>
+    );
+};
+
+// Para mostrar el progreso del usuario
+
+const AchievementsSection: React.FC = () => {
     return (
         <>
-            <IonPage id="main-content">
-                <IonHeader>
-                    <IonToolbar className='bar'>
-                        <IonTitle className='tex-titulo'>RutiAndo</IonTitle>
-                        <IonButtons slot="end">
-                            <IonMenuButton />
-                        </IonButtons>
-                    </IonToolbar>
-                </IonHeader>
-
-                <IonContent fullscreen>
-                    <IonHeader collapse="condense">
-                    </IonHeader>
-                    <br />
-                    <IonSearchbar className='searchbar3'></IonSearchbar>
-                    <br />
-                    <IonTitle className='actividades'>Actividades</IonTitle>
-
-                    <div className="card-container-incio">
-                        <CardActividades
-                            imagenSrc={'../src/images/ruta.jpg'}
-                            titulo={'Rutas'}
-                            subtitulo={'¡Descubre nuevas rutas!'}>
-                        </CardActividades>
-                    </div>
-                    <div>
-                        <CardActividades imagenSrc={'../src/images/retos.webp'}
-                            titulo={'Retos'}
-                            subtitulo={'Atrevete completar nuevos retos'} >
-                        </CardActividades>
-                    </div>
-                    <div>
-                        <CardActividades imagenSrc={''}
-                            titulo={'Grupos'}
-                            subtitulo={'Actividades de la comunidad'} >
-                        </CardActividades>
-                    </div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingRight: 20 }}>
-                        <IonTitle className='publicaciones-titul'>Publicaciones</IonTitle>
-                        <Botonpublicar />
-                    </div>
-                    <Publicacion />
-                </IonContent>
-            </IonPage >
+            <IonTitle className='logros' size='large'>Tus Logros</IonTitle>
+            <IonGrid className='card-container'>
+                <IonRow>
+                    <IonCol size='6'>
+                        <AchievementCard title='Nuevo logro 1' />
+                    </IonCol>
+                    <IonCol size='6'>
+                        <AchievementCard title='Nuevo logro 2' />
+                    </IonCol>
+                    <IonCol size='6'>
+                        <AchievementCard title='Nuevo logro 3' />
+                    </IonCol>
+                </IonRow>
+            </IonGrid>
         </>
     );
 };
 
-function Botonpublicar() {
+const AchievementCard: React.FC<{ title: string }> = ({ title }) => {
     return (
-        <>
-            <IonButton className="botonpublicar" shape="round">Publicar</IonButton>
-        </>
-    );
-}
-
-function Publicacion() {
-    return (
-        <IonCard className='publicacion'>
-            <img alt="Silhouette of mountains" src="../src/images/reunion.jpg" />
+        <IonCard className='card'>
             <IonCardHeader>
-                <IonCardTitle className='publicaciones-titul'>Float_slowly</IonCardTitle>
-                <IonCardSubtitle className='publicacion-subtitulo'>Festival de la bicicleta 2023!!</IonCardSubtitle>
+                <IonCardTitle>{title}</IonCardTitle>
             </IonCardHeader>
-
-            <IonCardContent></IonCardContent>
+            <IonCardContent>
+                <p>Detalles del logro...</p>
+            </IonCardContent>
         </IonCard>
     );
-}
+};
 
-export default Tab3;
-
-// Ver si creo un file de comunidad donde estaran los grupos, de ahi se crearan 3 apartados : 1)Puedes crear un reto para la comunidad 2) retos de la comunidad y/o completados por el usuario 3)Grupo creados por la comunidad y/o empresas 
+export default PerfilPage;
