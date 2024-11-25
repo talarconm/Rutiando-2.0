@@ -94,6 +94,7 @@ const AchievementsSection: React.FC = () => {
     );
 };
 
+ //PONER ESTO COMO UN COMPONENTE
 const AchievementCard: React.FC<{ title: string }> = ({ title }) => {
     return (
         <IonCard className='card'>

@@ -9,7 +9,7 @@ const Tab2: React.FC = () => {
       <IonContent fullscreen>
         <IonSearchbar className="searchbar1" />
         <IonTitle className="ion-tex-inicio">Rutas populares</IonTitle>
-        <div>
+        <div >
           <Publicacion
             imagenSrc="../src/images/lospeumos.jpg"
             titulo="Sendero Los Peumos"
@@ -39,3 +39,38 @@ const Tab2: React.FC = () => {
 };
 
 export default Tab2;
+
+const rutas = [
+  {
+    id: 1,
+    image:'../src/images/lospeumos.jpg',
+    titulo: 'Sendero Los Peumos',
+    dificultad: 'difícil',
+    etiquetas:['Senderismo', 'Familiar', 'Vista', 'Rocoso', 'Río'],
+    descripcion: 'El sendero Los Peumos es una de las opciones de senderos que pueden recorrer en el Parque Natural Aguas de Ramón, permite disfrutar de la abundante vegetación de la precordillera de Santiago, en especial el bosque de peumos, y agradables vistas panorámicas.Es considerado un sendero ideal para visitar en familia, debido a que es una ruta circular corta y sencilla, con varios miradores y una cascada.'
+  },
+  {
+    id: 2,
+    image:'../src/images/lospeumos.jpg',
+    titulo: 'Sendero Los Peumos',
+    dificultad: 'difícil',
+    etiquetas:['Senderismo', 'Familiar', 'Vista', 'Rocoso', 'Río'],
+    descripcion: 'El sendero Los Peumos es una de las opciones de senderos que pueden recorrer en el Parque Natural Aguas de Ramón, permite disfrutar de la abundante vegetación de la precordillera de Santiago, en especial el bosque de peumos, y agradables vistas panorámicas.Es considerado un sendero ideal para visitar en familia, debido a que es una ruta circular corta y sencilla, con varios miradores y una cascada.'
+  },
+  {
+    id: 3,
+    image:'../src/images/lospeumos.jpg',
+    titulo: 'Sendero Los Peumos',
+    dificultad: 'difícil',
+    etiquetas:['Senderismo', 'Familiar', 'Vista', 'Rocoso', 'Río'],
+    descripcion: 'El sendero Los Peumos es una de las opciones de senderos que pueden recorrer en el Parque Natural Aguas de Ramón, permite disfrutar de la abundante vegetación de la precordillera de Santiago, en especial el bosque de peumos, y agradables vistas panorámicas.Es considerado un sendero ideal para visitar en familia, debido a que es una ruta circular corta y sencilla, con varios miradores y una cascada.'
+  },
+  {
+    id: 4,
+    image:'../src/images/lospeumos.jpg',
+    titulo: 'Sendero Los Peumos',
+    dificultad: 'difícil',
+    etiquetas:['Senderismo', 'Familiar', 'Vista', 'Rocoso', 'Río'],
+    descripcion: 'El sendero Los Peumos es una de las opciones de senderos que pueden recorrer en el Parque Natural Aguas de Ramón, permite disfrutar de la abundante vegetación de la precordillera de Santiago, en especial el bosque de peumos, y agradables vistas panorámicas.Es considerado un sendero ideal para visitar en familia, debido a que es una ruta circular corta y sencilla, con varios miradores y una cascada.'
+  }
+]
