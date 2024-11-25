@@ -125,4 +125,4 @@ function Cardinicio3() {
 //   );
 // }
 
-// export default Inicio;
+export default Inicio;
