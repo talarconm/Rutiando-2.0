@@ -52,7 +52,7 @@ const App: React.FC = () => (
       <IonHeader >
         <IonToolbar className='bar'>
           <IonTitle className='tex-titulo'>RutiAndo</IonTitle>
-          <img className="zorro-iontoolbar" alt='zorro' src='../src/images/zorroFINAL.png' />
+          <img className="zorro-iontoolbar" alt='zorro' src='public/images/zorroFINAL.png' />
           <IonButtons slot="end">
             <IonMenuButton />
           </IonButtons>

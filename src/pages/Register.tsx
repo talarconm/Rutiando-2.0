@@ -45,11 +45,7 @@ const Register: React.FC = () => {
             });
             console.log("Datos guardados en Firestore.");
     
-            // Redirigir al inicio de sesión con datos prellenados
-            history.push({
-                pathname: "/login",
-                state: { email, password }, // Pasar datos al componente de inicio de sesión
-            });
+            history.push("/login");
         } catch (error: any) {
             console.error("Error al registrar usuario:", error.message);
     
@@ -60,7 +56,6 @@ const Register: React.FC = () => {
             }
         }
     };
-    
     
 
 
@@ -85,7 +80,7 @@ const Register: React.FC = () => {
                             <IonInput
                                 labelPlacement="floating"
                                 clearInput
-                                onIonChange={(e) => setUsername(e.detail.value!)}
+                                onIonInput={(e: any) => setUsername(e.target.value)}
                             >
                                 <div slot="label" style={{ color: "#fff" }}>
                                     Nombre de usuario
@@ -101,7 +96,7 @@ const Register: React.FC = () => {
                                 type="email"
                                 labelPlacement="floating"
                                 clearInput
-                                onIonChange={(e) => setEmail(e.detail.value!)}
+                                onIonInput={(e: any) => setEmail(e.target.value)}
                             >
                                 <div slot="label" style={{ color: "#fff" }}>
                                     Email
@@ -117,7 +112,7 @@ const Register: React.FC = () => {
                                 type="password"
                                 labelPlacement="floating"
                                 clearInput
-                                onIonChange={(e) => setPassword(e.detail.value!)}
+                                onIonInput={(e: any) => setPassword(e.target.value)}
                             >
                                 <div slot="label" style={{ color: "#fff" }}>
                                     Contraseña
@@ -139,7 +134,7 @@ const Register: React.FC = () => {
                     <div className="zorro">
                         <img
                             className="zorro-register"
-                            src="../src/images/zorroFINAL.png"
+                            src="public/images/zorroFINAL.png"
                             alt="zorro"
                         />
                     </div>

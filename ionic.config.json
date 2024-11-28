@@ -1,5 +1,7 @@
 {
   "name": "Rutiando2.0",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "react-vite"
 }

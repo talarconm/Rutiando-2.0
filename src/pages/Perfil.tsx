@@ -50,7 +50,7 @@ const UserProfile: React.FC = () => {
                     <IonRow > {/* Organizar en filas*/}
                         <IonCol size='3'>   {/* Organizar en columnas*/}
                             <IonAvatar> {/* Para la imagen de perfil*/}
-                                <img src='../src/images/zorroFINAL.png' alt='Profile picture' />
+                                <img src='public/images/zorroFINAL.png' alt='Profile picture' />
                             </IonAvatar>
                         </IonCol>
                         <IonCol size='6'>

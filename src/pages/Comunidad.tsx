@@ -40,13 +40,13 @@ const Tab3: React.FC = () => {
 
           <div className="card-container-incio">
             <CardActividades
-              imagenSrc={'../src/images/ruta.jpg'}
+              imagenSrc={'public/images/ruta.jpg'}
               titulo={'Rutas'}
               subtitulo={'¡Descubre nuevas rutas!'}>
             </CardActividades>
           </div>
           <div>
-            <CardActividades imagenSrc={'../src/images/retos.webp'}
+            <CardActividades imagenSrc={'public/images/retos.webp'}
               titulo={'Retos'}
               subtitulo={'Atrevete completar nuevos retos'} >
               </CardActividades>  
@@ -79,7 +79,7 @@ function Botonpublicar() {
 function Publicacion() {
   return (
     <IonCard className='publicacion'>
-      <img alt="Silhouette of mountains" src="../src/images/reunion.jpg" />
+      <img alt="Silhouette of mountains" src="public/images/reunion.jpg" />
       <IonCardHeader>
         <IonCardTitle className='publicaciones-titul'>Float_slowly</IonCardTitle>
         <IonCardSubtitle className='publicacion-subtitulo'>Festival de la bicicleta 2023!!</IonCardSubtitle>
