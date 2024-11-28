@@ -45,7 +45,11 @@ const Register: React.FC = () => {
             });
             console.log("Datos guardados en Firestore.");
     
-            history.push("/login");
+            // Redirigir al inicio de sesión con datos prellenados
+            history.push({
+                pathname: "/login",
+                state: { email, password }, // Pasar datos al componente de inicio de sesión
+            });
         } catch (error: any) {
             console.error("Error al registrar usuario:", error.message);
     
@@ -56,6 +60,7 @@ const Register: React.FC = () => {
             }
         }
     };
+    
     
 
 
