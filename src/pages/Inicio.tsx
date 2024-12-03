@@ -11,6 +11,8 @@ import {
   IonCardContent
 } from '@ionic/react';
 import '../theme/variables.css';
+import MapWithUserLocation from '../components/MapWithUserLocation';
+import CombinedMap from '../components/CombineMap';
 
 
 const Inicio: React.FC = () => {
@@ -21,6 +23,10 @@ const Inicio: React.FC = () => {
         </IonHeader>
         <br />
         <IonSearchbar className='searchbar1'></IonSearchbar>
+        <div style={{ margin: '16px 0' }}>
+
+</div>
+<CombinedMap />
         <IonTitle>Tendencias</IonTitle>
 
         <div className="card-grid">
