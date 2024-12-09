@@ -238,3 +238,65 @@ ion-chip {
     font-size: 16px;
     font-weight: bold;
 }
+
+/* ---------------------- CLIMA ---------------------- */
+.weather-card {
+    background: linear-gradient(145deg, #4caf50, #2e7d32);
+    /* Tonos verdes para un efecto vibrante */
+    color: #ffffff;
+    border-radius: 16px;
+    /* Esquinas más redondeadas */
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    /* Sombra más pronunciada */
+    display: flex;
+    flex-direction: column;
+    /* Orden vertical */
+    gap: 16px;
+    /* Separación entre elementos */
+    align-items: center;
+    justify-content: center;
+}
+
+.weather-title {
+    font-size: 1.4rem;
+    /* Título más grande */
+    font-weight: bold;
+    text-align: center;
+    /* Centrar título */
+}
+
+.weather-details {
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    /* Separación entre las filas */
+    line-height: 1.5;
+    /* Mejora legibilidad */
+    text-align: left;
+    width: 100%;
+    /* Alinear los textos en la misma posición */
+}
+
+.weather-details p {
+    margin: 0;
+}
+
+.weather-icon {
+    margin-top: 10px;
+}
+
+.weather-icon img {
+    width: 70px;
+    /* Tamaño más grande del icono */
+    height: 70px;
+    background: #ffffff;
+    /* Fondo blanco para destacar */
+    border-radius: 50%;
+    /* Redondear completamente */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    /* Sombra alrededor del icono */
+    padding: 8px;
+    /* Separación dentro del fondo blanco */
+}

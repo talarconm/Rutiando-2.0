@@ -124,7 +124,7 @@ const Login: React.FC = () => {
 
                     {/* Imagen */}
                     <div className="zorro">
-                        <img className="zorro-login" src="public/images/zorroFINAL.png" alt="zorro" />
+                        <img className="zorro-login" src="https://i.ibb.co/w44DySR/zorro-FINAL.png" alt="zorro" />
                     </div>
                 </div>
             </IonContent>

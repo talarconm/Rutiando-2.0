@@ -106,7 +106,7 @@ const UserProfile: React.FC = () => {
                     <IonRow>
                         <IonCol size="3">
                             <IonAvatar>
-                                <img src="public/images/zorroFINAL.png" alt="Profile picture" />
+                                <img src="https://i.ibb.co/w44DySR/zorro-FINAL.png" alt="Profile picture" />
                             </IonAvatar>
                         </IonCol>
                         <IonCol size="6">

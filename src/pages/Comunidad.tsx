@@ -68,12 +68,12 @@ const Tab3: React.FC = () => {
         <IonTitle className="actividades">Actividades</IonTitle>
         <div className="card-container-incio">
           <CardActividades
-            imagenSrc={'public/images/ruta.jpg'}
+            imagenSrc={'https://i.ibb.co/rG6nMmz/ruta.jpg'}
             titulo={'Rutas'}
             subtitulo={'¡Descubre nuevas rutas!'}
           />
           <CardActividades
-            imagenSrc={'public/images/retos.webp'}
+            imagenSrc={'https://i.ibb.co/F7gB30h/retos.webp'}
             titulo={'Retos'}
             subtitulo={'Atrévete a completar nuevos retos'}
           />

@@ -35,9 +35,9 @@ const Inicio: React.FC = () => {
           <Cardinicio2 />
           <Cardinicio3 />
         </div>
-        <div>
+        {/* <div>
           <IonTitle>Actualidad</IonTitle>
-        </div>
+        </div> */}
         
       </IonContent>
     </IonPage>
@@ -48,7 +48,7 @@ const Inicio: React.FC = () => {
 function Cardinicio1() {
   return (
     <IonCard className='main-card1'>
-      <img className="card-image1" alt="Silhouette of mountains" src="public/images/ciclismoCard.jpg" />
+      <img className="card-image1" alt="Silhouette of mountains" src="https://i.ibb.co/8Bb5tJk/ciclismo-Card.jpg" />
       <IonCardHeader>
         <IonCardTitle>Ciclismo</IonCardTitle>
         <IonCardSubtitle>¡Descubre nuevas rutas!</IonCardSubtitle>
@@ -62,7 +62,7 @@ function Cardinicio1() {
 function Cardinicio2() {
   return (
     <IonCard className='main-card2'>
-      <img className="card-image2" alt="Silhouette of mountains" src="public/images/Running.jpg" />
+      <img className="card-image2" alt="Silhouette of mountains" src="https://i.ibb.co/6rJrSpv/Running.jpg" />
       <IonCardHeader>
         <IonCardTitle >Running</IonCardTitle>
         <IonCardSubtitle>Atrevete completar nuevos retos</IonCardSubtitle>
@@ -76,7 +76,7 @@ function Cardinicio2() {
 function Cardinicio3() {
   return (
     <IonCard className='main-card3'>
-      <img className="card-image3" alt="Silhouette of mountains" src="public/images/HikingCard.jpg" />
+      <img className="card-image3" alt="Silhouette of mountains" src="https://i.ibb.co/hYpPQ5j/Hiking-Card.jpg" />
       <IonCardHeader>
         <IonCardTitle>Hiking</IonCardTitle>
         <IonCardSubtitle>actividades de la comunidad</IonCardSubtitle>
