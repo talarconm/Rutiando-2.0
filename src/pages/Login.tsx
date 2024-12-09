@@ -1,31 +1,41 @@
 import { IonContent, IonPage, IonText, IonList, IonItem, IonInput, IonButton } from "@ionic/react";
-import { useHistory } from "react-router-dom"; //Para navegar entre rutas
-import { useState } from "react";
+import { useHistory } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../Firebase/firebaseConfig";
 import '../theme/variables.css';
+import { useUser } from "../Context/UserContext";
 
 const Login: React.FC = () => {
-    const history = useHistory(); // Hook para redirigir a otra rutas
-    const [email, setEmail] = useState<string>('');      // Para email
-    const [password, setPassword] = useState<string>('');//Para contraseña
+    const history = useHistory();
+    const { user } = useUser(); // Extrae 'user' del contexto
+    const [username, setUsername] = useState<string>('');
+    const [email, setEmail] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
     const [error, setError] = useState<string | null>(null);
+
+    useEffect(() => {
+        if (!user) { // Si no hay usuario autenticado
+            setUsername("");
+            setEmail("");
+            setPassword("");
+            setError(null);
+        }
+    }, [user]); // Dependencia en 'user'
 
     const handleLogin = async () => {
         try {
-            // Autenticar usuario con email y contraseña
             await signInWithEmailAndPassword(auth, email, password);
-            history.push("/tabs"); // Redirigir a la vista principal
+            history.push("/tabs");
         } catch (error: any) {
             console.error("Error al iniciar sesión:", error.message);
             setError("Credenciales inválidas. Intenta de nuevo.");
         }
     };
 
-    const handleRegisterRedirect =() => {
-        history.push('/register'); // Redirigir a register al hacer clik en el boton
+    const handleRegisterRedirect = () => {
+        history.push('/register');
     };
-
 
     return (
         <IonPage>
@@ -42,15 +52,34 @@ const Login: React.FC = () => {
                         <h3>Iniciar sesión</h3>
                     </IonText>
 
-                    {/* Campo de entrada de email*/}
+                    {/* Campo de entrada de nombre de usuario */}
                     <IonList style={{ background: 'transparent' }}>
                         <IonItem lines='none' className='input-item'>
-                            <IonInput labelPlacement="floating" clearInput onIonInput={(e: any) => setEmail(e.target.value)}>
+                            <IonInput
+                                labelPlacement="floating"
+                                clearInput
+                                value={username} // Asocia el valor al estado
+                                onIonInput={(e: any) => setUsername(e.target.value)}
+                            >
+                                <div slot="label" style={{ color: "#fff" }}>
+                                    Nombre de usuario
+                                </div>
+                            </IonInput>
+                        </IonItem>
+                    </IonList>
 
-                            <div slot="label" style={{ color: "#fff" }}>
+                    {/* Campo de entrada de email */}
+                    <IonList style={{ background: 'transparent' }}>
+                        <IonItem lines='none' className='input-item'>
+                            <IonInput
+                                labelPlacement="floating"
+                                clearInput
+                                value={email} // Asocia el valor al estado
+                                onIonInput={(e: any) => setEmail(e.target.value)}
+                            >
+                                <div slot="label" style={{ color: "#fff" }}>
                                     Email
                                 </div>
-
                             </IonInput>
                         </IonItem>
                     </IonList>
@@ -58,8 +87,14 @@ const Login: React.FC = () => {
                     {/* Campo de entrada de contraseña */}
                     <IonList style={{ background: 'transparent' }}>
                         <IonItem lines='none' className='input-item'>
-                            <IonInput type="password" labelPlacement="floating" clearInput onIonInput={(e: any) => setPassword(e.target.value)}>
-                            <div slot="label" style={{ color: "#fff" }}>
+                            <IonInput
+                                type="password"
+                                labelPlacement="floating"
+                                clearInput
+                                value={password} // Asocia el valor al estado
+                                onIonInput={(e: any) => setPassword(e.target.value)}
+                            >
+                                <div slot="label" style={{ color: "#fff" }}>
                                     Contraseña
                                 </div>
                             </IonInput>
@@ -80,10 +115,10 @@ const Login: React.FC = () => {
                         </IonButton>
                     </div>
 
-                    {/* Botón de register */}
+                    {/* Botón de registro */}
                     <div className="container-boton-register">
                         <IonButton className='boton-register' shape="round" onClick={handleRegisterRedirect}>
-                            Registrate
+                            Regístrate
                         </IonButton>
                     </div>
 
@@ -94,9 +129,7 @@ const Login: React.FC = () => {
                 </div>
             </IonContent>
         </IonPage>
-        
     );
 };
 
 export default Login;
-

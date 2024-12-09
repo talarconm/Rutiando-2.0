@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react';
 import {
   IonContent,
   IonHeader,
@@ -10,86 +11,105 @@ import {
   IonButton,
   IonCard,
   IonCardHeader,
+  IonCardContent,
   IonCardTitle,
-  IonCardSubtitle,
-  IonCardContent
+  useIonModal,
 } from '@ionic/react';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../Firebase/firebaseConfig';
 import '../theme/variables.css';
 import CardActividades from '../components/Actividades';
+import FormularioPublicacion from '../components/FormularioPublicacion';
 
 const Tab3: React.FC = () => {
+  const [publicaciones, setPublicaciones] = useState<any[]>([]);
+
+  // Cargar publicaciones desde Firestore
+  useEffect(() => {
+    const fetchPublicaciones = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, 'publicaciones'));
+        const publicacionesFirestore = querySnapshot.docs.map((doc) => doc.data());
+        setPublicaciones(publicacionesFirestore);
+      } catch (error) {
+        console.error('Error al cargar publicaciones:', error);
+      }
+    };
+
+    fetchPublicaciones();
+  }, []);
+
+  const handleAgregarPublicacion = (publicacion: any) => {
+    setPublicaciones((prev) => [...prev, publicacion]); // Agregar publicación al feed
+  };
+
+  // Configurar el modal con useIonModal
+  const [present, dismiss] = useIonModal(FormularioPublicacion, {
+    onAgregarPublicacion: (data: any) => {
+      handleAgregarPublicacion(data);
+      dismiss(); // Cierra el modal después de publicar
+    },
+    onCerrar: () => dismiss(), // Cerrar el modal manualmente
+  });
+
   return (
-    <>
-      <IonPage id="main-content">
-        <IonHeader>
-          <IonToolbar className='bar'>
-            <IonTitle className='tex-titulo'>RutiAndo</IonTitle>
-            <IonButtons slot="end">
-              <IonMenuButton />
-            </IonButtons>
-          </IonToolbar>
-        </IonHeader>
+    <IonPage id="main-content">
+      <IonHeader>
+        <IonToolbar className="bar">
+          <IonButtons slot="end">
+            <IonMenuButton />
+          </IonButtons>
+        </IonToolbar>
+      </IonHeader>
 
-        <IonContent fullscreen>
-          <IonHeader collapse="condense">
-          </IonHeader>
-          <br />
-          <IonSearchbar className='searchbar3'></IonSearchbar>
-          <br />
-          <IonTitle className='actividades'>Actividades</IonTitle>
+      <IonContent fullscreen>
+        <IonSearchbar className="searchbar3" placeholder="Buscar actividades"></IonSearchbar>
 
-          <div className="card-container-incio">
-            <CardActividades
-              imagenSrc={'public/images/ruta.jpg'}
-              titulo={'Rutas'}
-              subtitulo={'¡Descubre nuevas rutas!'}>
-            </CardActividades>
-          </div>
-          <div>
-            <CardActividades imagenSrc={'public/images/retos.webp'}
-              titulo={'Retos'}
-              subtitulo={'Atrevete completar nuevos retos'} >
-              </CardActividades>  
-            </div>
-            <div>
-            <CardActividades imagenSrc={''}
-              titulo={'Grupos'}
-              subtitulo={'Actividades de la comunidad'} >
-              </CardActividades>  
-            </div>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingRight: 20 }}>
-            <IonTitle className='publicaciones-titul'>Publicaciones</IonTitle>
-            <Botonpublicar />
-          </div>
-          <Publicacion />
-        </IonContent>
-      </IonPage >
-    </>
+        <IonTitle className="actividades">Actividades</IonTitle>
+        <div className="card-container-incio">
+          <CardActividades
+            imagenSrc={'public/images/ruta.jpg'}
+            titulo={'Rutas'}
+            subtitulo={'¡Descubre nuevas rutas!'}
+          />
+          <CardActividades
+            imagenSrc={'public/images/retos.webp'}
+            titulo={'Retos'}
+            subtitulo={'Atrévete a completar nuevos retos'}
+          />
+          <CardActividades
+            imagenSrc={''}
+            titulo={'Grupos'}
+            subtitulo={'Actividades de la comunidad'}
+          />
+        </div>
+
+        <div className="header-publicaciones">
+          <IonTitle className="publicaciones-titul">Publicaciones</IonTitle>
+          <IonButton className="botonpublicar" shape="round" onClick={() => present()}>
+            Publicar
+          </IonButton>
+        </div>
+
+        {/* Lista de publicaciones */}
+        <div className="feed-publicaciones">
+          {publicaciones.map((publicacion, index) => (
+            <IonCard key={index}>
+              <IonCardHeader>
+                <IonCardTitle>{publicacion.titulo}</IonCardTitle>
+              </IonCardHeader>
+              <img
+                src={publicacion.imagen}
+                alt={`Publicación ${index}`}
+                style={{ width: '100%', height: 'auto' }}
+              />
+              <IonCardContent>{publicacion.descripcion}</IonCardContent>
+            </IonCard>
+          ))}
+        </div>
+      </IonContent>
+    </IonPage>
   );
 };
 
-function Botonpublicar() {
-  return (
-    <>
-      <IonButton className="botonpublicar" shape="round">Publicar</IonButton>
-    </>
-  );
-}
-
-function Publicacion() {
-  return (
-    <IonCard className='publicacion'>
-      <img alt="Silhouette of mountains" src="public/images/reunion.jpg" />
-      <IonCardHeader>
-        <IonCardTitle className='publicaciones-titul'>Float_slowly</IonCardTitle>
-        <IonCardSubtitle className='publicacion-subtitulo'>Festival de la bicicleta 2023!!</IonCardSubtitle>
-      </IonCardHeader>
-
-      <IonCardContent></IonCardContent>
-    </IonCard>
-  );
-}
-
 export default Tab3;
-
-// Ver si creo un file de comunidad donde estaran los grupos, de ahi se crearan 3 apartados : 1)Puedes crear un reto para la comunidad 2) retos de la comunidad y/o completados por el usuario 3)Grupo creados por la comunidad y/o empresas 

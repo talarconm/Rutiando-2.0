@@ -7,10 +7,14 @@ import {
   IonButtons,
   IonMenuButton,
   setupIonicReact,
-  IonRouterOutlet
+  IonRouterOutlet,
+  IonMenu,
+  IonContent,
+  
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import Login from './pages/Login';
+import Register from './pages/Register';
 import TabsPage from './pages/TabsPage';
 
 /* Core CSS required for Ionic components to work properly */
@@ -42,31 +46,38 @@ import '@ionic/react/css/palettes/dark.system.css';
 
 /* Theme variables */
 import './theme/variables.css';
-import Register from './pages/Register';
+import { UserProvider } from './Context/UserContext';
 
 setupIonicReact();
 
 const App: React.FC = () => (
+  
   <IonApp>
+    <UserProvider>
     <IonReactRouter>
-      <IonHeader >
-        <IonToolbar className='bar'>
-          <IonTitle className='tex-titulo'>RutiAndo</IonTitle>
-          <img className="zorro-iontoolbar" alt='zorro' src='public/images/zorroFINAL.png' />
-          <IonButtons slot="end">
-            <IonMenuButton />
-          </IonButtons>
-        </IonToolbar>
-      </IonHeader>
-      <IonRouterOutlet>
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/register" component={Register} />
-        <Route path="/tabs" component={TabsPage} />
-        <Route exact path="/">
-          <Redirect to="/login" />
-        </Route>
-      </IonRouterOutlet>
+      <IonReactRouter>
+        <IonHeader >
+
+          <IonToolbar className='bar'>
+            <IonTitle className='tex-titulo'>RutiAndo</IonTitle>
+            <img className="zorro-iontoolbar" alt='zorro' src='public/images/zorroFINAL.png' />
+            <IonButtons slot="end">
+              <IonMenuButton />
+            </IonButtons>
+          </IonToolbar>
+        </IonHeader>
+
+        <IonRouterOutlet>
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/register" component={Register} />
+          <Route path="/tabs" component={TabsPage} />
+          <Route exact path="/">
+            <Redirect to="/login" />
+          </Route>
+        </IonRouterOutlet>
+      </IonReactRouter>
     </IonReactRouter>
+    </UserProvider>
   </IonApp>
 );
 

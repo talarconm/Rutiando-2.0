@@ -11,12 +11,13 @@ import {
   IonCardContent
 } from '@ionic/react';
 import '../theme/variables.css';
-import MapWithUserLocation from '../components/MapWithUserLocation';
 import CombinedMap from '../components/CombineMap';
+import { UserProvider } from '../Context/UserContext';
 
 
 const Inicio: React.FC = () => {
   return (
+    <UserProvider>
     <IonPage>
       <IonContent fullscreen>
         <IonHeader collapse="condense">
@@ -40,6 +41,7 @@ const Inicio: React.FC = () => {
         
       </IonContent>
     </IonPage>
+    </UserProvider>
   );
 };
 
